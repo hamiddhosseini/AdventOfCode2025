@@ -6,6 +6,7 @@ def load_input_data(file_name: str) -> list[str]:
     input_ranges = data.split(',')
     return input_ranges
 
+
 input_ranges = load_input_data('input_final.txt')
 counter = 0
 for input_range in input_ranges:
