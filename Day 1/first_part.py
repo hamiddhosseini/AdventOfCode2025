@@ -38,19 +38,14 @@ def count_passing_times(
 
     return counter
 
+inputs = extract_inputs('input_final.txt')
 
-def solve():
-    inputs = extract_inputs("input.txt")
+result = count_passing_times(
+    inputs,
+    start_point=50,
+    count_point=0,
+    min_pointer=0,
+    max_pointer=100,
+)
 
-    result = count_passing_times(
-        inputs,
-        start_point=50,
-        count_point=0,
-        min_pointer=0,
-        max_pointer=100,
-    )
-
-    print(result)
-
-if __name__ == "__main__":
-    solve()
+print(result)
