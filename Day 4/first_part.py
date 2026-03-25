@@ -1,13 +1,15 @@
 from typing import List
 
-def load_grid_from_file(file_name: str) -> list[list[int]]:
+
+def load_grid_from_file(file_name: str) -> List[List[int]]:
     with open(file_name) as f:
         lines = f.read().splitlines()
         grid = [[
-        1 if c == '@' else 0 for c in line
-    ] for line in lines]
+            1 if c == '@' else 0 for c in line
+        ] for line in lines]
 
     return grid
+
 
 def count_accessible_rolls(grid: List[List[int]]) -> int:
     accessible_rolls = 0
@@ -19,9 +21,11 @@ def count_accessible_rolls(grid: List[List[int]]) -> int:
                     accessible_rolls += 1
     return accessible_rolls
 
-def count_neigbours(grid: List[List[int]], row:int, col:int) -> int:
+
+def count_neigbours(grid: List[List[int]], row: int, col: int) -> int:
     """
-    Counts the number of neighbours of a cell in the grid. Neighbours are defined as the 8 cells surrounding the cell, including diagonals.
+    Counts the number of neighbours of a cell in the grid. Neighbours are defined
+    as the 8 cells surrounding the cell, including diagonals.
     """
     min_col = max(0, col - 1)
     max_col = min(len(grid[row]) - 1, col + 1)
@@ -33,6 +37,7 @@ def count_neigbours(grid: List[List[int]], row:int, col:int) -> int:
             if grid[r][c] == 1:
                 count += 1
     return count
+
 
 grid = load_grid_from_file('input_final.txt')
 count_accessible_rolls(grid)
