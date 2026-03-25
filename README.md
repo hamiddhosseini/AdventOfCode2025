@@ -1,0 +1,4 @@
+# Advent of Code 2025
+This repository contains my solutions for the Advent of Code 2025 challenges. Each day's solution is organized in its own directory, with separate files for the first and second parts of the challenge. The code is written in Python and includes comments to explain the logic and approach used to solve each problem. Some solutions also include test cases to verify the correctness of the implementation. Feel free to explore the code and learn from the solutions provided!
+
+For the questions and challenges, please refer to the official Advent of Code website: https://adventofcode.com/2025.

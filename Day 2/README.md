@@ -1,0 +1,7 @@
+# Day 2: Gift Shop
+
+The problem describes several ranges of numbers where we need to count how many numbers within those ranges are "invalid" according to certain rules. The rules for validity are based on the digits of the numbers and their positions.
+
+For the first part, invalid numbers are made only of some sequence of digits repeated twice. For example, 1212 is invalid because it consists of the sequence "12" repeated twice. Similarly, 123123 is invalid because it consists of the sequence "123" repeated twice. However, 1234 is valid because it does not consist of a repeated sequence. Finding the invalid numbers in a given range involves checking each number against these rules. Using a. regular expression did not provide a significant performance improvement for the first part, so a straightforward approach was used to check for repeated sequences.
+
+For the second part, a number is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs. A regular expression has been used to check for these patterns efficiently. The regex looks for a sequence of digits that is repeated at least twice, ensuring that the entire number is made up of this repeated sequence.
