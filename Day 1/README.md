@@ -1,6 +1,19 @@
 # Day 1: Secret Entrance
 
-The problem describes a scenario where we have a series of movements (left and right) along a number line, starting from a specific point. We need to count how many times we pass a certain point (the "count_point") during these movements. The movements can wrap around within a defined range (from min_pointer to max_pointer).
-Once the wrapping is handled correctly, we can simply check if the current point after each movement is equal to the count_point or if we have passed it during the movement.
+## Problem
 
-For the first part, we only need to check if we land on the count_point after each movement. For the second part, we also need to check if we pass the count_point during the movement, which requires us to consider the direction of movement and the wrapping around the range. The test cases provided in the second part help ensure that the logic for counting crossings is correct, including edge cases where we start at a non-zero point and move to zero, or when we move left past zero. These cases were mostly developed to help with the debugging the provided solution and might not be comprehensive for all edge cases, but they do cover some important scenarios.
+You are given a series of movement commands (e.g. `L68`, `R30`) along a circular number line. Each command moves a pointer left (`L`) or right (`R`) by a given distance. The pointer wraps around within a fixed range (`min_pointer` to `max_pointer`). Starting from a defined `start_point`, you must count how many times the pointer hits or crosses a specific `count_point`.
+
+In this puzzle the range is `[0, 100]`, the starting position is `50`, and the count point is `0`.
+
+## Part 1
+
+Count how many times the pointer **lands exactly on** the `count_point` after each movement. Wrapping is applied after each step, and only the final resting position is checked.
+
+**Approach:** Apply each movement, wrap the resulting position into the valid range using modular arithmetic, and increment the counter if the position equals `count_point`.
+
+## Part 2
+
+Count how many times the pointer **passes through or lands on** the `count_point` during each movement, including multiple crossings caused by large jumps that wrap around the range more than once.
+
+**Approach:** Before wrapping, determine whether the movement crosses the boundary and how many times. If the movement distance is larger than the range, count full loops. Additionally check for a partial crossing at the boundary in the direction of travel. Finally, check if the wrapped end position lands on `count_point`. A comprehensive set of unit tests (`test_count_passing_times`) is included to verify edge cases such as starting on the count point, exact boundary landings, and multi-loop jumps.
