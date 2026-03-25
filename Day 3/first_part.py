@@ -1,10 +1,12 @@
 from typing import Tuple
 
+
 def load_battery_banks(file_name: str) -> list[str]:
     battery_banks = []
     with open(file_name) as f:
         battery_banks = f.read().splitlines()
     return battery_banks
+
 
 def calculate_total_voltage(battery_banks: list[str]) -> int:
     total_voltage = 0
@@ -22,6 +24,7 @@ def calculate_total_voltage(battery_banks: list[str]) -> int:
             voltage += biggest * 10 + second_biggest
         total_voltage += voltage
     return total_voltage
+
 
 def find_biggest_element(input: str) -> Tuple[int, int]:
     biggest = int(input[0])
