@@ -1,6 +1,7 @@
 from typing import List
 
-def extract_inputs(file_name:str) -> List[str]:
+
+def extract_inputs(file_name: str) -> List[str]:
     with open(file_name) as f:
         lines = f.readlines()
 
@@ -8,6 +9,7 @@ def extract_inputs(file_name:str) -> List[str]:
     for line in lines:
         inputs.append(line.strip().upper())
     return inputs
+
 
 def count_passing_times(
     inputs: List[str],
@@ -28,7 +30,6 @@ def count_passing_times(
         if direction == 'L':
             current_point -= distance
             if current_point < min_pointer:
-                old_counter = counter
                 if distance >= range_size:
                     counter += distance // range_size
                     if starting_point - (distance % range_size) < min_pointer and starting_point != count_point:
@@ -38,7 +39,6 @@ def count_passing_times(
         elif direction == 'R':
             current_point += distance
             if current_point > max_pointer:
-                old_counter = counter
                 if distance >= range_size:
                     counter += distance // range_size
                     if (starting_point + (distance % range_size)) > max_pointer and starting_point != count_point:
@@ -53,6 +53,7 @@ def count_passing_times(
             counter += 1
 
     return counter
+
 
 def test_count_passing_times() -> None:
     assert count_passing_times(["R5", "L3"], 10, 0, 0, 100) == 0, "No crossing should yield zero"

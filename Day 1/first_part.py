@@ -1,6 +1,7 @@
 from typing import List
 
-def extract_inputs(file_name:str) -> List[str]:
+
+def extract_inputs(file_name: str) -> List[str]:
     with open(file_name) as f:
         lines = f.readlines()
 
@@ -8,6 +9,7 @@ def extract_inputs(file_name:str) -> List[str]:
     for line in lines:
         inputs.append(line.strip().upper())
     return inputs
+
 
 def count_passing_times(
     inputs: List[str],
@@ -37,6 +39,7 @@ def count_passing_times(
             counter += 1
 
     return counter
+
 
 inputs = extract_inputs('input_final.txt')
 
